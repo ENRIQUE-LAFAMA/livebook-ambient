@@ -1,0 +1,49 @@
+.agregarM{
+    
+    margin-top: 45px;
+    width: 100%;
+    height: 200px;
+    /*background-color: #456BD8;*/
+    color: yellow;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.agregarM form{
+    
+    background: #fff;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5em;
+    box-sizing: border-box;
+    border-radius: 20px;
+    min-height: 250px;
+}
+.agregarM form spam{
+    font-size: 2em;
+    color: #456BD8;
+    margin-bottom: 5px;
+}
+.agregarM form .inputM{
+    border-radius: 15px;
+    text-align: center;
+    width: 48%;
+    
+    
+}
+.submitAgregarM{
+    margin-top: -12px; 
+}
+.contenido{
+  min-height: 500px;  
+}
+
+
