@@ -1,0 +1,65 @@
+.bodylog{
+    background-image: url(../img/logbac.jpg);
+    background-size:  100vw 100vh;
+    background-attachment: fixed;
+    
+}
+
+form{
+    width: 450px;
+    margin: auto;
+    background: rgba(255,255,255, 0.7);
+    padding: 20px 20px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    border-radius: 9px;
+    box-shadow: 4px 4px 5px rgba(0,0,255,0.3);
+}
+.lgsombra{
+    
+}
+h1{
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-size: 45px;
+    margin-bottom: 20px;
+    
+}
+.bodylog input{
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+#submitLog{
+    background-color:cornflowerblue;
+    color: white;
+    padding: 10px;
+    font-family: fantasy;
+    font-size: 20px;
+    border-radius: 20px
+    
+}
+#submitLog:hover{
+    background: rgba(0,0,0,0.5);
+}
+input{
+    cursor: pointer;
+    border: none;
+}
+
+.link_reg{
+    position: relative;
+    color: black;
+    font-size: 20px;
+}
+.link_reg
+@media(max-width:400px){
+    form{
+        width: 100%;
+        margin-top: 50%
+    }
+}

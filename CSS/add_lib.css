@@ -1,0 +1,59 @@
+/*PARAMETROS BASICOS PARA EL INICIO DE LOS ESTILOS*/
+*{
+    box-sizing: border-box;
+    
+}
+body{
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/*ESTILOS PARA EL FORMULARIO*/
+.add_lib{
+    width: 95%;
+    max-width: 500px;
+    padding: 20px;
+}
+.add_lib_titulo{
+    margin-top: 0;
+    text-align: center;
+}
+.add_lib_label, .add_lib_input{
+    display: block;
+}
+
+.add_lib_label{
+    width: 30%;
+}
+
+.add_lib_input{
+    width: 70%;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.archivo{
+    font-size: 1em;
+    margin: 10px 0;
+    width: 100%;
+}
+.add_lib_submit{
+    width: 100%;
+    font-size: 1.5em;
+    cursor: pointer;
+    background-color: #4A6FD8;
+    color: white;
+    /*border-radius: 4px;*/
+}
+
+
+

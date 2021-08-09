@@ -1,0 +1,45 @@
+.menu{
+    width: 130px;
+    height: 100%;
+    background:rgba(0,0,0,0.6);
+    font-size: 20px;
+    text-align: center;
+    
+}
+.seccionUser{
+width: 100%;
+    height: autoñ
+}
+.seccionUser img{
+    width: 75px;
+    height: 75%;
+    
+}
+.menu h1{
+    color: white;
+}
+
+.menu ul{
+    margin-top:75%;
+}
+
+/*estilos de los item del menu*/
+.menu ul li{
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+    /*margin-top: 25px;*/
+    
+}
+
+.menu .barra-m{
+    border-top: solid 5px #252425;
+}
+
+.menu ul li img{
+    
+    width: 40%;
+    height: 50px;
+    margin: 10px;
+    border-radius: 10px;
+}

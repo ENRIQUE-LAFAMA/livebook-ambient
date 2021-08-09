@@ -1,0 +1,12 @@
+/*importamos los estilos del menu */
+@import url(menu.css);
+@import url(login.css);
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.menu{
+    position: absolute;
+}
+
