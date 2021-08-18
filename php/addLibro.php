@@ -52,7 +52,10 @@ class Libro{
     
                                     /*metodo para agregar un nuevo libro a la biblioteca*/
     public function agregar($titulo, $autor, $fecha, $editorial,$portada, $arch){
+        
     if(!empty($arch)) {/*verificamos si existe algun archivo de lo contrario muestra error */
+        $rutaSaved;
+        $rutaSaved_p;
         
         $nArchivo = basename($_FILES["archivo"]["name"]);/*tomamos el nombre propio del archivo*/
         $nombreF =  date("d-m-y")."-". date("H-i-s"). "_" . $nArchivo;/*modificamos el nombre antes de guardar*/
@@ -113,22 +116,51 @@ class Libro{
     
     public function modificar(){
         
-        echo "<br>vamos a modificar LIBRO <br>";
+        include("conet.php");
+        $mlibro = "SELECT * FROM libros";
+        $mostrador = mysqli_query($conexion, $mlibro);
+        while($fila = $mostrador->fetch_assoc()){
+           
+            ?>
+            <article>
+                
+               <img class="M_img" src="<?php echo $fila['portada'];?>" alt="">
+               <h3 class="mostrarTL tituloTL" >Titulo: <?php echo $fila['titulo'];?></h3>
+               <h4 class="mostrarTL" >Autor: <?php echo $fila['autor'];?></h4>
+               <h4 class="mostrarTL" >Editorial: <?php echo $fila['editorial'];?></h4>
+              <!-- <p>hola mi loco</p>-->
+            </article>
+            <?php
+        }
         
         
         
     }
 /*----------------------------------------------------------------------------------------------------------*/     
     public function eliminar(){
-        
-        echo "vamos a eliminar LIBRO <br>";
-        
+        include("conet.php");
+        $mlibro = "SELECT * FROM libros";
+        $mostrador = mysqli_query($conexion, $mlibro);
+        while($fila = $mostrador->fetch_assoc()){
+           
+            ?>
+            <article>
+                
+               <a href="../php/borrar.php?id=<?php echo $fila['id'];?>" class="borrar"><div class="icobasura"><img src="vistas/garbage.png" alt=""></div></a>
+               <img class="M_img" src="<?php echo $fila['portada'];?>" alt="">
+               <h3 class="mostrarTL tituloTL" >Titulo: <?php echo $fila['titulo'];?></h3>
+               <h4 class="mostrarTL" >Autor: <?php echo $fila['autor'];?></h4>
+               <h4 class="mostrarTL" >Editorial: <?php echo $fila['editorial'];?></h4>
+              <!-- <p>hola mi loco</p>-->
+            </article>
+            <?php
+        }
         
     }
     
-
-    
 }
+    
+
 /*Instanciamos el objeto lib que seria libro*/
 $lib = new Libro;
 

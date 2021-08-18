@@ -1,45 +1,145 @@
-.menu{
-    width: 130px;
-    height: 100%;
-    background:rgba(0,0,0,0.6);
-    font-size: 20px;
-    text-align: center;
+
+.head{
+
+    
+    position: relative;
+    display: block;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 60px;
+    background:rgba(78, 115, 223);
+    text-align: end;
+
     
 }
-.seccionUser{
-width: 100%;
-    height: autoñ
+
+.container1{
+    margin-top: 10px;
 }
-.seccionUser img{
-    width: 75px;
-    height: 75%;
+.main{
+    background: #C0C0C0;
+    padding: 8px;
+}
+.head a{
     
-}
-.menu h1{
+    position: relative;
     color: white;
+    font-size: 1.4em;
+    
+}
+.head .tituloEntrada{
+    font-size: 40px;
+font-family: 'Lobster', cursive;
+    
+}
+.head a:hover{
+    text-decoration-line: underline;
+    
 }
 
-.menu ul{
-    margin-top:75%;
+.conten_principal{
+    display: inline-block;
+    position: absolute;
+}
+.foda{
+    
+
+}
+.row1div1 .img1{
+    border-radius: 8px;
 }
 
-/*estilos de los item del menu*/
-.menu ul li{
+.analizis{
+    background: linear-gradient(90deg,#0000FF,#00BFFF,#87CEFA);
+    border-radius: 15px;
+    text-align: justify;
+}
+.mision{
+    min-height:300px;
+    /*background-color: 	#0000FF;*/
+    font-size:1.4em;
+}
+.vision{
+    min-height:300px;
+    /*background-color: 	#1E90FF;*/
+    font-size:1.4em;
+}
+.valores{
+    
+    min-height:300px;
+    /*background-color: 	#87CEFA;*/
+    
+}
+.foda_p{
+    color: aliceblue;
+    font-size: 16px;
+}
+/*000000000000000000000000000000000000000000000000000000000000000000000000000*/
+/*Css para el slider para mas rapido lo hare en css y no con js para cambiarlo mas adelante*/
+    
+/*
+    .slideindex{
+
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        
+        background: url(../img/slide1.jpg);
+        object-fit: cover;
+        animation: slideimg 80s infinite alternate ease-in-out;
+
+    }
+    @keyframes slideimg{
+        25%{
+            background: url(../img/slide2.jpg);
+        }
+        50%{
+            background: url(../img/slide3.jpg);
+        }
+        75%{
+            background: url(../img/slide4.jpg);
+        }
+        100%{
+            background: url(../img/slide1.jpg);
+        }
+    }
+*/
+
+.slideindex{
+    
+    height: 400px;
+    overflow: hidden;
+    animation: slide 20s infinite alternate ease-in-out;
+    
+}
+.slideindex ul{
+    display: flex;
+    width: 400%;
+    padding: 0px;
+    
+    
+}
+.slideindex ul li{
     list-style: none;
-    text-align: center;
-    justify-content: center;
-    /*margin-top: 25px;*/
+    width: 100%;
     
 }
-
-.menu .barra-m{
-    border-top: solid 5px #252425;
+.slideindex ul li img{
+    width: 100%;
+    object-fit:cover; 
 }
 
-.menu ul li img{
-    
-    width: 40%;
-    height: 50px;
-    margin: 10px;
-    border-radius: 10px;
+@keyframes slide{
+    0%(margin-left:0%;)
+    20%(margin-left:0%;)
+    25%(margin-left:-100%;)
+    45%(margin-left:-100%;)
+    50%(margin-left:-200%;)
+    70%(margin-left:-200%;)
+    75%(margin-left:-300%;)
+    95%(margin-left:-300%;)
 }
+
+
+

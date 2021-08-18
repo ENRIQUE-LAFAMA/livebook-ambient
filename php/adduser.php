@@ -27,6 +27,8 @@ class usuarios{
     public $password;
     public $tipoCuenta;
     public $foto_p;
+    public $miscursos;
+    
     
     public function __construct() {
         /*esta funcion construcctor, se encarga de construir nuestro usuario con los atributos correspondientes*/
@@ -45,7 +47,7 @@ class usuarios{
         
         include ("conet.php");/*se nececitara el archivo de conexion cada vez que se valla a hacer alguna consulta a la base de datos*/
         
-        $insertar = "INSERT INTO reg_usuario(nombre, apellido, telefono, correo, password, rol_usuario, foto) VALUES ('$nombre', '$apellidos', '$tel','$correo', '$password', '$tipoCuenta', '$foto_p')";
+        $insertar = "INSERT INTO reg_usuario(nombre, apellido, telefono, correo, password, rol_usuario,cursos, foto) VALUES ('$nombre', '$apellidos', '$tel','$correo', '$password', '$tipoCuenta','', '$foto_p')";
             /*se prepara la consulta*/
         
         /*se ejecuta la consulta*/

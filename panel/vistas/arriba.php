@@ -25,7 +25,7 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
     <meta name="author" content="">
 
     <title  rel="icon" href="../img/icono.png">Live Books</title>
-
+    <link rel="shortcut icon" href="vistas/icono.jpg"/>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -33,7 +33,7 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet"><!--estilos de la tecnologia de bootstrap-->
+    <link href="css/sb-admin-2.css" rel="stylesheet"><!--estilos de la tecnologia de bootstrap-->
     <link rel="stylesheet" href="css/mostrar.css"><!--estilos personalizados -->
     <link rel="stylesheet" href="css/estilos.css"><!--estilos personalizados -->
 
@@ -77,6 +77,7 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="agregarMateria.php">Agregar materia</a>
+                        <hr>
                         <a class="collapse-item" href="#">Buttons</a>
                         <a class="collapse-item" href="#">Cards</a>
                     </div>
@@ -123,31 +124,33 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
                         <?php if($_SESSION['tipoCuenta']== 1):?><!--esta instruccion es para ocultar opciones dependiendo el tipo de usuario-->
                         <a class="collapse-item" href="../RED/addbook.php">Agregar</a> 
                         <?php endif;?>
-                        <a class="collapse-item" href="ver.php">Mostrar </a>
+                        <a class="collapse-item" href="ver.php">Mostrar</a>
                         <?php if($_SESSION['tipoCuenta']== 1):?><!--esta instruccion es para ocultar opciones dependiendo el tipo de usuario-->
-                        <a class="collapse-item" href="forgot-password.html">Eliminar</a>
+                        <a class="collapse-item" href="eliminarLibro.php">Eliminar</a>
                         <?php endif;?>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Otras funciones:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <!--<a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a>-->
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!-- Nav Item - Charts
+            
+             otras opciones -->
+            <!--<li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li>-->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+           <!-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li>
+            </li>-->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

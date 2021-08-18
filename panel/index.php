@@ -6,7 +6,7 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
     <h1>hola <?php echo $_SESSION['nombre']; ?></h1>
     <?php
         
-        /*include("../php/materias.php");$mate->mostrar("Match");*/
+        include("../php/materias.php");$mate->mostrar("MATCH");
         
     ?>
     
