@@ -13,9 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
@@ -36,58 +34,60 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crear una Cuenta!</h1>
                             </div>
-                            <form class="user" action="../php/adduser.php" method="POST"><!--FORMULARIO PARA EL REGISTRO DE NUEVOS USUARIOS-->
-                               
+                            <form class="user" action="../php/adduser.php" method="POST">
+                                <!--FORMULARIO PARA EL REGISTRO DE NUEVOS USUARIOS-->
+
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Insertar Nombre" name="nombre" >
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Insertar Nombre" name="nombre" required>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Insertar Apellido" name="apellido" >
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Insertar Apellido" name="apellido" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control form-control-user" 
-                                        placeholder="Telefono" name="tel" >
+                                    <input type="number" class="form-control form-control-user" placeholder="Telefono" name="tel" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Correo Electronico" name="correo" >
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Correo Electronico" name="correo" required>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password" name="password" >
+                                        <input type="password" class="form-control form-control-user" 
+                                               id="exampleInputPassword" placeholder="Password" name="password" 
+                                               required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" 
+                                               oninvalid="this.setCustomValidity('Debe contener al menos una letra mayúscula, al menos una minúscula, al menos un dígito, al menos un caracter especial y un mínimo de 8 caracteres de longitud')">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repetir Password" >
+                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repetir Password" required>
                                     </div>
                                 </div>
-                                <div class="form-group"><!--EL USUARIO ELEGIRA EL TIPO DE CUENTA QUE DESEA.
+                                <div class="form-group">
+                                    <!--EL USUARIO ELEGIRA EL TIPO DE CUENTA QUE DESEA.
                                  LAS OPCIONES ESTARAN BLOQUEADAS DEPENDIENDO TIPO DE USUARIO LOGUEADO-->
-                                  <label for="tipoCuenta" class="col-sm-6 mb-3 mb-sm-0">TIPO DE CUENTA</label>
-                                   <select name="tipoCuenta" class="col-sm-6" placeholder="Elija el tipo de Cuenta">
-                                       <option value="2">Estudiante</option>
-                                       <option value="1">Maestro (a)</option>
-                                   </select>
+                                    <label for="tipoCuenta" class="col-sm-6 mb-3 mb-sm-0">TIPO DE CUENTA</label>
+                                    <select name="tipoCuenta" class="col-sm-6" placeholder="Elija el tipo de Cuenta">
+                                        <option value="2">Estudiante</option>
+                                        <option value="1">Maestro (a)</option>
+                                    </select>
                                 </div>
-                                
-                                <input value="Registrar Cuenta" class="btn btn-primary btn-user btn-block" type="submit" name="submitRegistro"><!--CON EL NAME SE LLAMARA EN LA LOGICA DE PHP LA FUNCION CORRESPONDIENTE A ESTE CASO REGISTRAR A UN USUARIO-->
+
+                                <input value="Registrar Cuenta" class="btn btn-primary btn-user btn-block" type="submit" name="submitRegistro">
+                                <!--CON EL NAME SE LLAMARA EN LA LOGICA DE PHP LA FUNCION CORRESPONDIENTE A ESTE CASO REGISTRAR A UN USUARIO-->
                                 <hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Registrese con Google
-                                </a><!--INTEGRAR LAS APIS PARA ESTAS OPCIONES-->
+                                </a>
+                                <!--INTEGRAR LAS APIS PARA ESTAS OPCIONES-->
                                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Registrese con  Facebook
+                                    <i class="fab fa-facebook-f fa-fw"></i> Registrese con Facebook
                                 </a>
                             </form>
                             <hr>
-                            
+
                             <div class="text-center">
-                                <a class="small" href="login.php">¿Ya tienes una cuenta? ¡Acceso!</a><!--ESTE VINCULO LLEVA AL LOGIN EN CASO DE YA TENER UNA CUENTA CREADA-->
+                                <a class="small" href="login.php">¿Ya tienes una cuenta? ¡Acceso!</a>
+                                <!--ESTE VINCULO LLEVA AL LOGIN EN CASO DE YA TENER UNA CUENTA CREADA-->
                             </div>
                         </div>
                     </div>
