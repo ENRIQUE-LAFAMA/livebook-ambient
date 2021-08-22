@@ -51,7 +51,8 @@ font-family: 'Lobster', cursive;
 }
 
 .analizis{
-    background: linear-gradient(90deg,#0000FF,#00BFFF,#87CEFA);
+    /*background: linear-gradient(90deg,#0000FF,#00BFFF,#87CEFA);*/
+    background: linear-gradient(90deg,#0000FF,#00FF00);
     border-radius: 15px;
     text-align: justify;
 }
@@ -101,6 +102,7 @@ font-family: 'Lobster', cursive;
             background: url(../img/slide4.jpg);
         }
         100%{
+
             background: url(../img/slide1.jpg);
         }
     }
