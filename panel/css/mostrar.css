@@ -64,11 +64,13 @@ article{
     box-sizing: border-box;
 }
 .cambiar_f{
+    position: relative;
     background-color: blue;
     display: block;
-    width: 100%;
+    width: 10%;
+    height: 23px;
     
-    
+   justify-content: center;
 }
 
 .foto_p{
@@ -76,6 +78,7 @@ article{
     max-width: 250px;
     max-height: 250px;
     justify-items: center;
+    
     margin: auto;
 }
 .icobasura{
@@ -99,7 +102,6 @@ article{
     
     
 }
-
 
 
 

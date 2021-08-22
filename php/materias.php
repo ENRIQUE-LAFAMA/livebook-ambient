@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 class Materia{
     
     public $materia;
@@ -10,7 +10,7 @@ class Materia{
     public $codigoc1;
     public $codigoc2;
     public $correo;
-    
+
     
     public function __construct(){
         $this->materia;
@@ -19,26 +19,31 @@ class Materia{
         $this->codigoM;
     }
     public function mostrar($codigoM){
-        
+        $correo = $_SESSION['correo'];
         include("conet.php");
-        $mostrarC = "SELECT * FROM clasesmateria WHERE codigoM = '$codigoM'";
+        $buscarC = "SELECT cursos FROM reg_usuario WHERE correo = '$correo'";
+        $buscador = mysqli_query($conexion, $buscarC);
+        /*$filaU = $buscador->fetch_assoc();*/
+        
+        /*echo "'".$fila['cursos']."'";*/
+        /*CHECAR COMO RECORRER EL ARREGLO PARA PODER TRAER TODAS LAS CLASES AGREGADAS*/
+        $mostrarC = "SELECT codigoM FROM clasesmateria WHERE codigoM in('match','leng') ";
         $mostrador = mysqli_query($conexion, $mostrarC);
-        /*$fila = $mostrador->fetch_assoc();
-        $nfila = count($fila);
-        $contador = count($fila); */
+        $filaM = $mostrador->fetch_assoc();
         
+       /*echo $filaM['codigoM']. "<br>". $filaU['cursos'];*/
         
-       while($fila = $mostrador->fetch_assoc()){
+       while($filaM = $mostrador->fetch_assoc()){
            
             ?>
             
             <hr>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vistaM" aria-expanded="true" aria-controls="collapseTwo">
-                    <span><?php echo $fila['tituloC'];$fila['descripcionC']; ?>  </span>
+                    <span><?php echo $filaM['tituloC'];$filaM['descripcionC']; ?>  </span>
                 </a>
                 <div id="vistaM" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <span class="collapse-item" >Descripcion: <?php echo $fila['descripcionC']; ?></span>
+                        <span class="collapse-item" >Descripcion: <?php echo $filaM['descripcionC']; ?></span>
                         
                     </div>
                 </div>
@@ -58,7 +63,8 @@ class Materia{
         
     }
     /*fin de mostrar materia*/
-    public function agregarClase($idM, $codigoM, $text, $curso, $correo){
+    /*public function agregarClase($idM, $codigoM, $text, $curso, $correo)*/
+    public function agregarClase($codigoF, $correo){
         $gclase = "SELECT * FROM reg_usuario WHERE correo = '$correo' ";
         include("conet.php");
         $mostrador = mysqli_query($conexion, $gclase);
@@ -68,18 +74,25 @@ class Materia{
         /*$cont = count($fila['cursos']);
         echo $cont;*/
         
+    
         
-        
+        $arreglo = array();
         $arreglo[] = $fila['cursos'];
-        $arreglo[] = "rojo";
-        
-        echo $arreglo[1];
+        $arreglo[] = $codigoF;
         
         
+        /*este bucle es para poder saber las materias ya agregadas en el arreglo que viene de la base de datos*/
+        $materias="";
+        foreach($arreglo as $elementos){
+            $materias = $materias . "$elementos,";
+            
+        }
         
         
+        $guardar = "$materias";
         
-        
+        $nMateria = "UPDATE reg_usuario SET cursos = '$guardar' WHERE correo = '$correo'";
+        $actualiza = mysqli_query($conexion, $nMateria);
         
         /*$insertar = "INSERT INTO clasemateria (materia)"*/
     }
@@ -107,8 +120,8 @@ if(isset($_POST['agregaM'])){
     $codigoc1 = $_POST['codigoc1'];
     $codigoc2 = $_POST['codigoc2'];
     $codigoF = $codigoc1 . $codigoc2;
-    
-    $mate->agregarClase($codigoF);
+    $correo = $_SESSION['correo'];
+    $mate->agregarClase($codigoF, $correo);
 }
 
 

@@ -49,12 +49,12 @@
                               <!--img de perfil-->
                               <div class="form-group row"> 
                                     
-
-                                        
+                                        <label for="cambiar_f">
                                             <img class="foto_p" name="foto_p"  
                                             src="<?php echo $_SESSION['foto'];?>">
                                         
-                                        <input type="file" class="" name="cambiar_f" >
+                                        </label>
+                                            <input type="file"  style="display:none;"name="cambiar_f" id="cambiar_f">
                                   
                                   </div>
                                 <div class="form-group row">
