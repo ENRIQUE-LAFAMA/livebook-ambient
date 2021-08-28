@@ -56,7 +56,17 @@ class Libro{
     if(!empty($arch)) {/*verificamos si existe algun archivo de lo contrario muestra error */
         $rutaSaved;
         $rutaSaved_p;
+        $permiteArchivo = array('pdf');
+        $permitePortada = array('img', 'png','jpg','jpeg');
         
+        $extArchivo = explode(".", $_FILES['archivo']['name']);
+        $extPortada = explode(".", $_FILES['portada']['name']);
+        
+        $verExtArch = strtolower(end($extArchivo));
+        $verExtPort = strtolower(end($extPortada));
+        
+        if(in_array($verExtArch, $permiteArchivo)){
+            if(in_array($verExtPort, $permitePortada)){
         $nArchivo = basename($_FILES["archivo"]["name"]);/*tomamos el nombre propio del archivo*/
         $nombreF =  date("d-m-y")."-". date("H-i-s"). "_" . $nArchivo;/*modificamos el nombre antes de guardar*/
         $rutaSaved = "../biblioteca/" . $nombreF; /*creamos una variable para asignar una ruta de guardado*/
@@ -77,17 +87,23 @@ class Libro{
             $conf = mysqli_query($conexion, $agregar);/*ejecutamos la consulta para guardar*/
             if($conf) {/*si se guardo sactisfactoriamente muestra una alerta y redirije a la pagina principal del usuario logueado*/
                 echo " <script> alert('Se guardo el Libro'); window.location='../panel/index.php'</script>";
-            }
-            else{/*si no se guarda muestra error */
+            }else{/*si no se guarda muestra error */
                 echo $conf;
                 echo "NO" . $conexion->error;
                 /*echo "<script> alert('No se ha guardado el Libro');</script>";*/
                 
-            }
-        } 
+                }
+                    }
+                }else{
+                    echo "<script> alert('Esta portada no es permitida, solo archivos con extension: img, jpg, jpeg, png, svg.');window.location='../RED/addbook.php'</script>";
+                }
+            }else{
+                    echo "<script> alert('El archivo no es documento PDF');window.location='../RED/addbook.php'</script>";
+                }
+                                    /*fin para agregar */
+        }
     }
-                                    /*fin para agregar */   
-    }
+        
 /*----------------------------------------------------------------------------------------------------------*/        
     
     public function mostrar($search = null){
@@ -108,30 +124,9 @@ class Libro{
 
             <?php
         }
-        
-        
-        
-    }
-/*----------------------------------------------------------------------------------------------------------*/        
-    
-    public function modificar(){
-        
-        include("conet.php");
-        $mlibro = "SELECT * FROM libros";
-        $mostrador = mysqli_query($conexion, $mlibro);
-        while($fila = $mostrador->fetch_assoc()){
-           
-            ?>
-            <article>
-                
-               <img class="M_img" src="<?php echo $fila['portada'];?>" alt="">
-               <h3 class="mostrarTL tituloTL" >Titulo: <?php echo $fila['titulo'];?></h3>
-               <h4 class="mostrarTL" >Autor: <?php echo $fila['autor'];?></h4>
-               <h4 class="mostrarTL" >Editorial: <?php echo $fila['editorial'];?></h4>
-              <!-- <p>hola mi loco</p>-->
-            </article>
-            <?php
         }
+        
+        
         
         
         
@@ -158,11 +153,38 @@ class Libro{
         
     }
     
+    public function buscar($buscador){
+        /*$peticion = "SELECT * FROM libros WHERE titulo = '$buscador', autor = '$buscador', fecha = '$buscador', editorial = '$buscador',";*/
+        $peticion = "SELECT * FROM libros WHERE titulo LIKE '%$buscador%'";
+        include("conet.php");
+        $consulta = mysqli_query($conexion,$peticion);
+        while($fila = $consulta->fetch_assoc()){
+           
+            ?>
+            <article>
+                <a href="<?php echo $fila['ubicacion']; ?>">
+               <img class="M_img" src="<?php echo $fila['portada'];?>" alt=""></a>
+               <h3 class="mostrarTL tituloTL" >Titulo: <?php echo $fila['titulo'];?></h3>
+               <h4 class="mostrarTL" >Autor: <?php echo $fila['autor'];?></h4>
+               <h4 class="mostrarTL" >Editorial: <?php echo $fila['editorial'];?></h4>
+              <!-- <p>hola mi loco</p>-->
+            </article>
+            <?php
+        }
+    }
+    
 }
+
+
     
 
 /*Instanciamos el objeto lib que seria libro*/
 $lib = new Libro;
+
+/*if(isset($_POST["buscarL"])){
+    $buscador = _POST['inputBuscador'];
+    $lib->mostrar($buscador);
+}*/
 
 if(isset($_POST["submitAdd"])){
 /*verificamos si hay algun $_POST para entonces guardar los datos en las variables 

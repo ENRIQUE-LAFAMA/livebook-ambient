@@ -68,11 +68,11 @@ class usuarios{
 
         }
     /*funcion o metodo para modificar los datos de los diferentes usuarios*/
-    public function modificar($nombre, $apellidos, $tel, $correo, $password, $foto){
+    public function modificar($nombre, $apellidos, $tel, $correo, $password, $foto,$foto_p){
         
         if($foto){/*si el usuario elije cambiar foto de perfil verificamos el archivo*/
             $fotoN = basename( $_FILES['cambiar_f']['name']);/*tomamos el nombre del archivo*/
-            $ruta = "perfiles/" . $fotoN;/*definimos una ruta concatenada con el nombre para luego identificar las fotos de los usuarios*/
+            $ruta = "../panel/perfiles/" . $fotoN;/*definimos una ruta concatenada con el nombre para luego identificar las fotos de los usuarios*/
         }
         else{
             $ruta = $_SESSION['foto']; /*en caso de que no se halla cargado ninguna img entonces la variable ruta tendra el valor ya en la bae de datos( ultima img cargada )*/
@@ -136,11 +136,11 @@ $apellidos = $_POST["apellido"];
 $tel = $_POST["tel"];
 $correo = $_SESSION['correo'];
 $password = $_POST["password"];
-
+$foto_p = "perfiles/undraw_profile.svg";
 $foto = $_FILES["cambiar_f"];/*obtenemos el archivo mediante la palabra reservada $_FILES*/
 
 /*---------------------------------------*/
-$user->modificar($nombre, $apellidos, $tel, $correo, $password, $foto);/*LLAMAMOS EL OBJETO CON SU METODO MODIFICAR QUE NOS PERMITIRA EDITAR LA INFO DE LOS USUARIOS*/
+$user->modificar($nombre, $apellidos, $tel, $correo, $password, $foto, $foto_p);/*LLAMAMOS EL OBJETO CON SU METODO MODIFICAR QUE NOS PERMITIRA EDITAR LA INFO DE LOS USUARIOS*/
 }
 
 
