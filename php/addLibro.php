@@ -110,7 +110,7 @@ class Libro
     public function mostrar($search = null)
     {
         include("conet.php");
-        $mlibro = $search ? "SELECT * FROM libros WHERE titulo LIKE '%$search%'" : "SELECT * FROM libros";
+        $mlibro = $search ? "SELECT * FROM libros WHERE titulo LIKE '%$search%' OR autor LIKE '%$search%' OR fecha LIKE '%$search%' OR editorial LIKE '%$search%' " : "SELECT * FROM libros";
         $mostrador = mysqli_query($conexion, $mlibro);
         while ($fila = $mostrador->fetch_assoc()) {
 
