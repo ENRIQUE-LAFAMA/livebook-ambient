@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 class Materia{
     
     public $materia;
@@ -27,9 +27,9 @@ class Materia{
         
         /*echo "'".$fila['cursos']."'";*/
         /*CHECAR COMO RECORRER EL ARREGLO PARA PODER TRAER TODAS LAS CLASES AGREGADAS*/
-        $mostrarC = "SELECT codigoM FROM clasesmateria WHERE codigoM in('match','leng') ";
+        $mostrarC = "SELECT * FROM clasesmateria WHERE codigoM ='match' ";
         $mostrador = mysqli_query($conexion, $mostrarC);
-        $filaM = $mostrador->fetch_assoc();
+        /*$filaM = $mostrador->fetch_assoc();*/
         
        /*echo $filaM['codigoM']. "<br>". $filaU['cursos'];*/
         

@@ -76,10 +76,10 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="agregarMateria.php">Agregar materia</a>
+                        <a class="collapse-item" href="agregarMateria.php">Crear Materia</a>
                         <hr>
-                        <a class="collapse-item" href="#">Buttons</a>
-                        <a class="collapse-item" href="#">Cards</a>
+                        <a class="collapse-item" href="#">Matematicas</a>
+                        <a class="collapse-item" href="#">Ingles</a>
                     </div>
                 </div>
             </li>
