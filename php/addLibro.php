@@ -90,13 +90,12 @@ class Libro{
     }
 /*----------------------------------------------------------------------------------------------------------*/        
     
-    public function mostrar(){
-        
+    public function mostrar($search = null){
         include("conet.php");
-        $mlibro = "SELECT * FROM libros";
+        $mlibro = $search ? "SELECT * FROM libros WHERE titulo LIKE '%$search%'" : "SELECT * FROM libros";
         $mostrador = mysqli_query($conexion, $mlibro);
         while($fila = $mostrador->fetch_assoc()){
-           
+            
             ?>
             <article>
                 
@@ -106,6 +105,7 @@ class Libro{
                <h4 class="mostrarTL" >Editorial: <?php echo $fila['editorial'];?></h4>
               <!-- <p>hola mi loco</p>-->
             </article>
+
             <?php
         }
         
