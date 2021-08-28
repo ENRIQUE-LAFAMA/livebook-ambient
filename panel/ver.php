@@ -1,6 +1,6 @@
 <?php
-  require_once "vistas/arriba.php";
-  require_once "../php/addLibro.php";
+require_once "vistas/arriba.php";
+require_once "../php/addLibro.php";
 ?>
 
 <div class="container-fluid contenLibro">
@@ -17,8 +17,11 @@
   <div class="container-fluid contenMostrar">
 
     <?php
-        $search = $_GET['search'];
-        $lib->mostrar($search);
+    $search = null;
+    if (isset($_GET['search'])) {
+      $search = $_GET['search'];
+    }
+    $lib->mostrar($search);
     ?>
 
   </div>
