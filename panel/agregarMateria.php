@@ -29,13 +29,9 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
         <!--selector de maestro-->
          <label for="selectMaestro">Maestro:</label>
           <select name="selectMaestro" id="materiaM">
-               <?php include("conet.php");
-                $mostrarC = "SELECT * FROM reg_usuario ";
-                $mostrador = mysqli_query($conexion, $mostrarC);
-                while($fila = $mostrador->fetch_assoc()){
-               ?>
-                    <option value="<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></option>
-              <?php } ?>
+               
+                    <option value="<?php echo $_SESSION['id']; ?>"><?php echo $_SESSION['nombre']; ?></option>
+              
            </select>
            </div>
            <!--selector de materia-->
@@ -45,11 +41,13 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
                <?php include("conet.php");
                 $mostrarC = "SELECT * FROM materias ";
                 $mostrador = mysqli_query($conexion, $mostrarC);
+               $fila1 = $mostrador->fetch_assoc();
                 while($fila = $mostrador->fetch_assoc()){
                ?>
                     <option value="<?php echo $fila['codigo']; ?>"><?php echo $fila['materia']; ?></option>
               <?php } ?>
            </select>
+              
            </div>
            <div class="divM">
            <label for="selectC">Curso:</label>
@@ -67,12 +65,13 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
            <!--tex area-->
             <textarea name ="textarea" class="textD" placeholder="Agrege Descripcion (opcional)" ></textarea>
             
-            <input class="submitAgregarM btn btn-primary btn-user" type="submit" name="agregaC" value="Entrar a la materia">
+            <input class="submitAgregarM btn btn-primary btn-user" type="submit" name="CrearMateria" value="Entrar a la materia">
             
         </form>
     </div>
            <?php endif; ?>
     
 </div>
+
 
 <?php require_once "vistas/bajo.php";?>

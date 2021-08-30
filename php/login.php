@@ -16,11 +16,13 @@ $consulta = mysqli_query($conexion, $q);
 
 /*si la consulta encontro coincidencia devolvera el numero de filas que coinciden*/
 $int_usuario = mysqli_num_rows($consulta);
+
         if($int_usuario > 0){/*verificamos si existe al menos una coincidencia, los usuarios no se repiten por lo que no debe devolver
         mas de uno*/
             $fila = $consulta->fetch_assoc();/*almacenamos la fila optenida de la base de datos en forma de arreglo en la variable fila*/
             
             /*almacenamos los valores obtenidos de la base de datos en variables de seccion para poder usarlas mas adelantes en otras vistas*/
+            $_SESSION['id'] = $fila['id'];
             $_SESSION['nombre'] = $fila['nombre'];
             $_SESSION['apellido'] = $fila['apellido'];
             $_SESSION['telefono'] = $fila['telefono'];

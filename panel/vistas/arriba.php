@@ -76,6 +76,8 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                       <!--VALIDAR EL USUARIO PAR AQU MUESTRE REGISTRAR MATERIA CUANDO SEA UN ESTUDIANTE
+                       -->
                         <a class="collapse-item" href="agregarMateria.php">Crear Materia</a>
                         <hr>
                         <a class="collapse-item" href="#">Matematicas</a>

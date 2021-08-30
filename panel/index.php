@@ -6,7 +6,7 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
     <h1>Matematicas</h1>
     <?php
         
-        include("../php/materias.php");$mate->mostrar("MATCH");
+        include("../php/materias.php");$mate->mostrar("LENG");
         
     ?>
     
