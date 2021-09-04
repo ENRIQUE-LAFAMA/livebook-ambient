@@ -38,16 +38,16 @@ class Materia{
         /*$filaM = $mostrador->fetch_assoc();*/
         
        /*echo $filaM['codigoM']. "<br>". $filaU['cursos'];*/
-        
+        $i = 0;
        while($filaM = $mostrador->fetch_assoc()){
-           
+           $i++;
             ?>
             
             <hr>
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vistaM" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#vistaM<?php echo $i;?>" aria-expanded="true" aria-controls="collapseTwo">
                     <span><?php echo $filaM['tituloC'];$filaM['descripcionC']; ?>  </span>
                 </a>
-                <div id="vistaM" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="vistaM<?php echo $i;?>" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <span class="collapse-item" >Descripcion: <?php echo $filaM['descripcionC']; ?></span>
                         
@@ -91,7 +91,7 @@ class Materia{
                     /*$materiasAgregadas = $materiasAgregadas . $arregloU[$i] . " ";*/ 
                         $clases = $filaM['codigoM'];?>
                     
-                    <a class="collapse-item" id="<?php $filaM['codigoM'];?>" href="mostrarclases.php?varClase=<?php echo "$clases";?>"><?php echo $filaM['materia'];?></a>
+                    <a class="collapse-item" id="<?php $filaM['codigoM'];?>" href="mostrarclases.php?varClase=<?php echo "$clases";?>"><?php echo $filaM['materia'] . " - " . $filaM['Curso'];?></a>
                     
                <?php }
                 
@@ -178,7 +178,7 @@ class Materia{
         }
         else{
             /*en caso de que no exista la clase se guarda a la base de datos*/
-             $guardar = "INSERT INTO clasesmateria (materia, tituloC, descripcionC, codigoM) VALUE ('$nombreM','$tituloC','$text','$codigoMateria')";
+             $guardar = "INSERT INTO clasesmateria (materia, tituloC, descripcionC, curso, codigoM) VALUE ('$nombreM','$tituloC','$text','$curso', '$codigoMateria')";
             $guardarM = mysqli_query($conexion,$guardar);
             
             $this->agregarClase($codigoMateria, $mCorreo);          

@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar sierta parde de codigo-->
 

@@ -25,7 +25,7 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
            <!--si el usuario es maestro le mostrara agrgegar clase-->
              
               <?php if($_SESSION['tipoCuenta']== 1):?>
-    <h1>Crear Materia:</h1>
+    <h1>Crear Materia</h1>
     <hr>
     <div class="agregarM">
         
