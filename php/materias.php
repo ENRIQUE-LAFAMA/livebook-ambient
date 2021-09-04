@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+    
+
+
 
 class Materia{
     
@@ -18,6 +21,9 @@ class Materia{
         $this->descripcion;
         $this->codigoM;
     }
+    
+    
+    
     public function mostrar($codigoM){
         $correo = $_SESSION['correo'];
         include("conet.php");
@@ -49,18 +55,52 @@ class Materia{
                 </div>
             <!--oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
             
-            Benyamin18199claro1782FF
+                                Benyamin18199claro1782FF
             -->
-           
-        
-           
-            
-            
-            
           
             <?php
         }
         
+    }
+    
+    /*hay que hacer que las materias se muestren en el panel del estudiante y del maestro*/
+    public function mostrarMateria(){
+        
+        
+        $correo = $_SESSION['correo'];
+        include("conet.php");
+        
+        $buscarU = "SELECT * FROM reg_usuario WHERE correo ='$correo' ";
+        $peticion = mysqli_query($conexion, $buscarU);
+        $filaU = mysqli_fetch_assoc($peticion);
+        $arregloU = array();
+        $arregloU = explode(' ', $filaU['cursos']);
+        
+        
+        $mostrarM = "SELECT * FROM clasesmateria";
+        $mostrador = mysqli_query($conexion, $mostrarM);
+        
+        
+        
+        while($filaM = $mostrador->fetch_assoc()){
+            
+            
+            for($i=0; $i < count($arregloU); $i++){
+                
+                if($filaM['codigoM'] == $arregloU[$i]){
+                    /*$materiasAgregadas = $materiasAgregadas . $arregloU[$i] . " ";*/ 
+                        $clases = $filaM['codigoM'];?>
+                    
+                    <a class="collapse-item" id="<?php $filaM['codigoM'];?>" href="mostrarclases.php?varClase=<?php echo "$clases";?>"><?php echo $filaM['materia'];?></a>
+                    
+               <?php }
+                
+        }
+        }
+        
+        
+        
+    
     }
     /*fin de mostrar materia*/
     /*public function agregarClase($idM, $codigoM, $text, $curso, $correo)*/
@@ -83,27 +123,42 @@ class Materia{
                 break;
                 
             }else{
+                
                 $materias = $materias . $elementos ." ";
+                
+                
             }
             
         }
-        
+        /*fin del for*/
+                
+        $verExist = "SELECT * FROM clasesmateria WHERE codigoM = '$codigoF' ";
+        include("conet.php");
+        $mostrador = mysqli_query($conexion, $verExist);
+        $existencia = mysqli_num_rows($mostrador);
+        if($existencia == 0){
+            echo "<script> alert('Esta materia aun NO existe, verifique el codigo nuevamente y reintente.');window.location = '../panel/agregarMateria.php'</script>";
+                    
+        }
+        else{           
         $materias = $materias . "$codigoF" . " ";
         
         $guardar = "$materias";
-        
         
             $nMateria = "UPDATE reg_usuario SET cursos = '$guardar' WHERE correo = '$correo'";
             $actualiza = mysqli_query($conexion, $nMateria);
             if($actualiza){
                 echo "<script> alert('Materia agregada, puedes revisar en tu panel.');window.location = '../panel/agregarMateria.php'</script>";
             }
+                }
+        
         
         /*$insertar = "INSERT INTO clasemateria (materia)"*/
     }
     /*crear materias como profesor*/
-    public function mostrarMateria($nombreM, $idM, $codigoM, $text, $curso, $tituloC, $correo){
-        
+    public function crearMateria($nombreM, $idM, $codigoM, $text, $curso, $tituloC, $correo){
+        session_start();
+        $mCorreo = $_SESSION['correo'];
         
         include("conet.php");
         /*aqui se genera el codigo de materia el cual es unico por materia*/
@@ -125,9 +180,10 @@ class Materia{
             /*en caso de que no exista la clase se guarda a la base de datos*/
              $guardar = "INSERT INTO clasesmateria (materia, tituloC, descripcionC, codigoM) VALUE ('$nombreM','$tituloC','$text','$codigoMateria')";
             $guardarM = mysqli_query($conexion,$guardar);
-        
+            
+            $this->agregarClase($codigoMateria, $mCorreo);          
             if($guardarM){
-            echo $nombreM . "<br>" . $codigoMateria . "<br>";
+            
             echo "<script>alert('Materia creada con EXITO.');window.location='../panel/agregarMateria.php';</script>";
             }
         }
@@ -147,6 +203,8 @@ class Materia{
 
 $mate = new Materia;
 
+
+
 if(isset($_POST['CrearMateria'])){
     $idM = $_POST['selectMaestro'];
     $codigoM = $_POST['materiaM'];
@@ -159,17 +217,18 @@ if(isset($_POST['CrearMateria'])){
     $encontrar = mysqli_query($conexion, $concidir);
     $nombreM =$encontrar->fetch_assoc();
     
-    $mate->mostrarMateria($nombreM['materia'],$idM, $codigoM, $text, $curso,$tituloC, $correo);
+    $mate->crearMateria($nombreM['materia'],$idM, $codigoM, $text, $curso,$tituloC, $correo);
 }
 
 
 if(isset($_POST['agregaM'])){
+    session_start();
     $codigoc1 = $_POST['codigoc1'];
     $codigoc2 = $_POST['codigoc2'];
     if(empty($codigoc1) or empty($codigoc2)){
         echo "<script>alert('Debes completar el codigo para poder Registrar la materia');window.location = '../panel/agregarMateria.php';</script>";
     }else{
-    $codigoF = $codigoc1 . $codigoc2;
+    $codigoF = $codigoc1 ."-". $codigoc2;
     $correo = $_SESSION['correo'];
     $mate->agregarClase($codigoF, $correo);}
 }

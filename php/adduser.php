@@ -116,7 +116,7 @@ if(isset($_POST["submitRegistro"])){/*verificamos si se hizo algun post desde el
     $correo = $_POST["correo"];
     $password = $_POST["password"];
     $tipoCuenta = $_POST["tipoCuenta"];
-    $foto_p = "perfiles/undraw_profile.svg";/*al ser un registro se le asigna un avatar o foto de perfil definido*/
+    $foto_p = "perfiles/images.png";/*al ser un registro se le asigna un avatar o foto de perfil definido*/
     
     $user->agregar($nombre, $apellidos, $tel, $correo, $password, $tipoCuenta, $foto_p);/*llamamos el objeto con su metodo agregar para que nos cree un nuevo usuario ya que el los datos se enviarmos desde el boton regustrar*/
     
@@ -136,7 +136,7 @@ $apellidos = $_POST["apellido"];
 $tel = $_POST["tel"];
 $correo = $_SESSION['correo'];
 $password = $_POST["password"];
-$foto_p = "perfiles/undraw_profile.svg";
+$foto_p = "perfiles/images.png";
 $foto = $_FILES["cambiar_f"];/*obtenemos el archivo mediante la palabra reservada $_FILES*/
 
 /*---------------------------------------*/

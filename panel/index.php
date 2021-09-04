@@ -3,10 +3,10 @@
 require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar sierta parde de codigo-->
 
 <div class="container-fluid contenido"><!--cuerpo de la pagina principal-->
-    <h1>Matematicas</h1>
+    <h1>Bienvanido</h1>
     <?php
         
-        include("../php/materias.php");$mate->mostrar("LENG");
+/*        include_once("../php/materias.php");$mate->mostrarMateria();*/
         
     ?>
     

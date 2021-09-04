@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include("../php/conet.php");
 /*    include("../php/login.php");*/
@@ -78,10 +79,27 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
                     <div class="bg-white py-2 collapse-inner rounded">
                        <!--VALIDAR EL USUARIO PAR AQU MUESTRE REGISTRAR MATERIA CUANDO SEA UN ESTUDIANTE
                        -->
-                        <a class="collapse-item" href="agregarMateria.php">Crear Materia</a>
+                        <?php  if($_SESSION['tipoCuenta']== 2):?>
+                            <a class="collapse-item" href="agregarMateria.php">Entrar a Clases </a>
+                        <?php endif;?>
+                        
+                        <?php if($_SESSION['tipoCuenta']== 1):?><!--esta instruccion es para ocultar opciones dependiendo el tipo de usuario-->
+                            <a class="collapse-item" href="agregarMateria.php">Crear Materia</a>
+                        
+                        <?php endif;?>
                         <hr>
-                        <a class="collapse-item" href="#">Matematicas</a>
-                        <a class="collapse-item" href="#">Ingles</a>
+                        
+                        <?php 
+                            
+                            include("../php/materias.php");
+                            $mate->mostrarMateria();
+                        
+                        ?>
+                        
+                        
+                        
+                        <!--<a class="collapse-item" href="#">Matematicas</a>
+                        <a class="collapse-item" href="#">Ingles</a>-->
                     </div>
                 </div>
             </li>

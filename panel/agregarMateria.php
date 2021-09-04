@@ -1,5 +1,6 @@
 <?php
 
+
 require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar sierta parde de codigo-->
 
 <div class="container contenido"><!--cuerpo de la pagina principal-->
@@ -10,12 +11,15 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
       <!--si el usuario es estudiante le mostrara agregar materia-->
     
         <form action="../php/materias.php" method="post">
-            <input name="codigoc1" class="inputM" type="text">
-            <spam>-</spam>
-            <input name="codigoc2" class="inputM" type="text">
+            <div class="form_estudiante">
+                <input name="codigoc1" class="inputM" type="text">
+                <spam>-</spam>
+                <input name="codigoc2" class="inputM" type="text">
+            </div>
             <input class="submitAgregarM btn btn-primary btn-user" type="submit" name="agregaM" value="Entrar a la materia">
             
         </form>
+    
            <?php endif; ?>
            
            <!--si el usuario es maestro le mostrara agrgegar clase-->
@@ -27,11 +31,12 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
         
         <form action="../php/materias.php" method="post"><div class="divM">
         <!--selector de maestro-->
+            <!--<input type="text" name="correoM" value="<?php echo $_SESSION['correo']; ?>">-->
          <label for="selectMaestro">Maestro:</label>
           <select name="selectMaestro" id="materiaM">
                
                     <option value="<?php echo $_SESSION['id']; ?>"><?php echo $_SESSION['nombre']; ?></option>
-              
+                    
            </select>
            </div>
            <!--selector de materia-->

@@ -2,7 +2,7 @@
     
     margin-top: 45px;
     width: 100%;
-    
+    position: relative;
     height: 200px;
     /*background-color: #456BD8;*/
     color: yellow;
@@ -18,14 +18,16 @@
     padding: 0px 10px;
 }
 
+
 .agregarM form{
     
     background: #fff;
+    
     width: 100%;
     min-width: 300px;
     height: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     display: flex;
     flex-wrap: wrap;
     font-size: 1.5em;
@@ -38,15 +40,35 @@
     color: #456BD8;
     margin-bottom: 5px;
 }
+
 .agregarM form .inputM{
     border-radius: 15px;
     text-align: center;
-    width: 48%;
+    max-width: 45%;
     
-    
-    
+   
 }
 
+.form_estudiante{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    
+    /**/
+}
+
+@media screen and (max-width:417px){
+    .form_estudiante{
+        display: flex;
+        
+        justify-content: center;
+        min-width: 140px;
+    }
+    .agregarM form .inputM{
+        max-width: 30%;
+    }
+}
 
 .divM{
     min-width: 100%;
@@ -64,6 +86,7 @@
     
     
 }
+
 .textD{
     position: relative;
     width: 90%;

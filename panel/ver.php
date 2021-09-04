@@ -1,10 +1,10 @@
 <?php
-
+/*include_once("buscar.php");*/
 require_once "vistas/arriba.php";?>
     
 <div class="container-fluid contenLibro">
-      <form method="POST" action="buscar.php"
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+     
+      <!--<form method="POST" action="buscar.php" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" name="inputBuscador" class="form-control bg-light border-0 small" placeholder="Busca tu libro..."
                                 aria-label="Search" aria-describedby="basic-addon2">
@@ -14,15 +14,15 @@ require_once "vistas/arriba.php";?>
                                 </button>
                             </div>
                         </div>
-                    </form>
+        </form>-->
        <h1 class="tituloM">Mostrando archivos</h1>
     <div class="container-fluid contenMostrar">
      
       <?php 
                 include("../php/addLibro.php");
                     $lib->mostrar();
-        include("buscar.php");
-        while($fila = $mostrador->fetch_assoc()){
+        
+        /*while($fila = $mostrador->fetch_assoc()){
 
                 ?>
                 <article>
@@ -34,7 +34,7 @@ require_once "vistas/arriba.php";?>
                   <!-- <p>hola mi loco</p>-->
                 </article>
                 <?php
-            }
+            }*/
         ?>
        
        
