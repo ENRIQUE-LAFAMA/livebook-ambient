@@ -53,13 +53,8 @@
                                         placeholder="Telefono" name="tel" >
                                 </div>
                                 <div class="form-group">
-<<<<<<< Updated upstream
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Correo Electronico" name="correo" >
-=======
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Correo Electronico" name="correo" required>
                                     
->>>>>>> Stashed changes
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
