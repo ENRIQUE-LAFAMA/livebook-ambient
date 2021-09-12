@@ -18,6 +18,8 @@ if (isset($_GET['search'])) {
       </form>
     </div>
   </nav>
+  
+  
   <h1 class="tituloM">Mostrando archivos</h1>
   <div class="container-fluid contenMostrar">
     <?php

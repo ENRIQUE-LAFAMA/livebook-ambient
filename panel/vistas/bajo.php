@@ -61,6 +61,7 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="confirmacion.js"></script>
+    <script src="../php/selecLib"></script>
 
 </body>
 

@@ -19,6 +19,7 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
 
 <head>
 
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -85,6 +86,7 @@ $usuario = mysqli_fetch_assoc($consulta);/*combertimos la variable usuario en un
                         
                         <?php if($_SESSION['tipoCuenta']== 1):?><!--esta instruccion es para ocultar opciones dependiendo el tipo de usuario-->
                             <a class="collapse-item" href="agregarMateria.php">Crear Materia</a>
+                            <a class="collapse-item" href="addClase.php">Agregar Asignacion</a>
                         
                         <?php endif;?>
                         <hr>

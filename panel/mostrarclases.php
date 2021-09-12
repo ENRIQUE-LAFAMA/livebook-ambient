@@ -13,8 +13,6 @@ require_once "vistas/arriba.php";?><!--esta instruccion nos permite llamar siert
     <h1><?php echo $filaM['materia']; ?></h1>
     <?php
         
-    
-        
         include_once("../php/materias.php");$mate->mostrar($materiaSelecionada);
     
         

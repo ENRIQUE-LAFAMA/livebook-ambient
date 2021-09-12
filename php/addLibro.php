@@ -30,7 +30,6 @@ if($_FILES["archivo"]) {
 /*                          *** fin del codigo para agregar ESTA FUNCIONAL ***          */
 /*-/-/-/-/-/-/-/-/-/-/-/-/-/--/-/-/-/-/-/-//-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/*/
 /*Para manejar los libros trabajamos con POO (programacion orientada a objetos)*/
-
 /*clase para los libros*/
 class Libro
 {
@@ -56,6 +55,7 @@ class Libro
     {
 
         if (!empty($arch)) {/*verificamos si existe algun archivo de lo contrario muestra error */
+            
             $rutaSaved;
             $rutaSaved_p;
             $permiteArchivo = array('pdf');
@@ -124,6 +124,30 @@ class Libro
                 <!-- <p>hola mi loco</p>-->
             </article>
 
+       
+        <?php
+        }
+    }
+    /*rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr*/
+    /*rrrrrrrrrrrrrrrrrrrrrrrrrrr PRUEBA DE SELECION DE LIBROS rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr*/
+    /*rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr*/
+    public function mostrarS($search = null)
+    {
+        include("conet.php");
+        $mlibro = $search ? "SELECT * FROM libros WHERE titulo LIKE '%$search%' OR autor LIKE '%$search%' OR fecha LIKE '%$search%' OR editorial LIKE '%$search%' " : "SELECT * FROM libros";
+        $mostrador = mysqli_query($conexion, $mlibro);
+        while ($fila = $mostrador->fetch_assoc()) {
+
+?>
+            <article>
+                <img class="M_img" src="<?php echo $fila['portada']; ?>" alt="">
+                <h3 class="mostrarTL tituloTL">Titulo: <?php echo $fila['titulo']; ?></h3>
+                <h4 class="mostrarTL">Autor: <?php echo $fila['autor']; ?></h4>
+                <h4 class="mostrarTL">Editorial: <?php echo $fila['editorial']; ?></h4>
+                <!-- <p>hola mi loco</p>-->
+            </article>
+
+       
         <?php
         }
     }
